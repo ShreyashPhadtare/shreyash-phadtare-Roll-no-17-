@@ -1,13 +1,20 @@
 #include <iostream>
 using namespace std;
 
-template <typename T>T mymax(T x, T y) {
-    return (x > y) ? x : y;
+template <typename T>
+T multiply(T a, T b) {
+    if (a < 0 || b < 0)
+    throw "Negative values not allowed";
+    return a * b;
 }
-
 int main() {
-    cout << "max of 3 & 7 is: " << mymax<int>(3, 7) << endl;
-    cout << "max of 3.5 & 7.5 is: " << mymax<double>(3.5, 7.5) << endl;
-    cout << "max of g & e is: " << mymax<char>('g', 'e') << endl;
-    return 0;
+    try {
+    cout << "Int Result: " << multiply(5, 3) << endl;
+    cout << "Float result: " << multiply(2.5, 4.0) << endl;
+
+}
+catch (const char* msg) {
+    cout << "Exception: " << msg << endl;
+}
+return 0;
 }
